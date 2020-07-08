@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Login from './screens/auth/Login';
+import Dashboard from './screens/dashboard/Dashboard';
+import BookingScreen from './screens/bookings/BookingScreen';
+import UserScreen from './screens/users/UserScreen';
+import ReviewScreen from './screens/reviews/ReviewScreen';
+import TourScreen2 from './screens/tours/TourScreen2';
+import CreateTour from './screens/tours/CreateTour';
+import Report from './screens/reports/reports';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/bookings" component={BookingScreen} />
+          <Route exact path="/users" component={UserScreen} />
+          <Route exact path="/reviews" component={ReviewScreen} />
+          <Route exact path="/tours" component={TourScreen2} />
+          <Route exact path="/reports" component={Report} />
+          <Route exact path="/tours/create" component={CreateTour} />
+          {/* <Route exact path="/edit/:tourId" component={EditTour} /> */}
+          {/* <Route exact path="/create2" component={TourCreate} /> */}
+          
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
